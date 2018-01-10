@@ -10,8 +10,14 @@ export class ChatRoomsService {
 
 
 
-  getChatRooms() {
-    return
+  getChatRoom() {
+    let observable = new Observable(observer => {
+      observer.next(this.url);
+      return () => {
+
+      };
+    })
+    return observable;
   }
 
   sendMessage(message) {
@@ -21,8 +27,7 @@ export class ChatRoomsService {
   getMessages() {
     let observable = new Observable(observer => {
       this.socket = io(this.url);
-      this.socket.on('message', (data) => {
-        console.log("data", data);
+      this.socket.on(this.eventName, (data) => {
         observer.next(data);
       });
       return () => {
