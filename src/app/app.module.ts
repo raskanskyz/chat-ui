@@ -12,6 +12,7 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { ChatRoomsService } from './services/chat-rooms.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckOriginDirective } from './directives/check-origin.directive';
+import { SetStylingDirective } from './directives/set-styling.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CheckOriginDirective } from './directives/check-origin.directive';
     ModalSidebarComponent,
     ModalMainviewComponent,
     AvatarComponent,
-    CheckOriginDirective
+    CheckOriginDirective,
+    SetStylingDirective
   ],
   imports: [
     BrowserModule,

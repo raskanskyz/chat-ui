@@ -1,7 +1,7 @@
 <div class="flex container max">
 
   <!-- MESSAGE LIST -->
-  <div class="conversation max overflow--y">
+  <div class="conversation max pt--20 overflow--y">
 
     <!-- MESSAGE ITEM <REPEAT> -->
     <div class="flex message-item" *ngFor="let temp of messages" appCheckOrigin senderId="{{temp._id}}">
@@ -10,7 +10,7 @@
       <app-avatar [avatarUrl]="temp.avatar"></app-avatar>
 
       <!-- USER MESSAGE CONTENT -->
-      <div class="message-content" appSetStyling>
+      <div class="message-content" appSetStyling senderId="{{temp._id}}">
         {{temp.text}}
       </div>
     </div>
