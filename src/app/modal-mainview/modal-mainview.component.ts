@@ -17,7 +17,6 @@ export class ModalMainviewComponent implements OnInit {
   constructor(private chatRoomsService: ChatRoomsService) { }
 
   ngOnInit() {
-    this.isSelfMessage = true;
     this.connection = this.chatRoomsService.getMessages().subscribe(message => {
       this.messages.push(message);
     })
@@ -30,8 +29,9 @@ export class ModalMainviewComponent implements OnInit {
     }
 
     const messageObj = {
+      _id: localStorage.getItem('_id'),
       avatar: localStorage.getItem('currentAvatar'),
-      userName: "Guest",
+      userName: localStorage.getItem('nickName'),
       text: this.message
     }
     this.chatRoomsService.sendMessage(messageObj);

@@ -4,13 +4,13 @@
   <div class="conversation max overflow--y">
 
     <!-- MESSAGE ITEM <REPEAT> -->
-    <div class="flex" [class.flex--reverse]="!isSelfMessage" *ngFor="let temp of messages">
+    <div class="flex message-item" *ngFor="let temp of messages" appCheckOrigin senderId="{{temp._id}}">
 
       <!-- USER AVATAR -->
       <app-avatar [avatarUrl]="temp.avatar"></app-avatar>
 
       <!-- USER MESSAGE CONTENT -->
-      <div class="message-content">
+      <div class="message-content" appSetStyling>
         {{temp.text}}
       </div>
     </div>

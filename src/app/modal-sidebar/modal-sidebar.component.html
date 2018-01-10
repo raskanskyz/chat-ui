@@ -1,21 +1,28 @@
 <div class="container border max">
 
   <!-- TOOLBAR/ACTIONBAR -->
-  <ul class="flex toolbar max--width pa--10 border--bottom">
+  <div class="toolbar flex max--width pa--10 border--bottom">
 
     <!-- AVATAR -->
-    <li class="max--height">
-      <div class="avatar" [style.backgroundImage]="'url('+ randomAvatarUrl +')'">
-
-      </div>
-    </li>
+    <div class="max--height inline">
+      <app-avatar [avatarUrl]="currentAvatarUrl"></app-avatar>
+    </div>
 
     <!-- OPTIONS -->
-    <li class="max--height">
+    <div class="nickname-placeholder flex max--height pl--5">
+      {{nickName}}
+    </div>
+  </div>
 
-    </li>
-  </ul>
+  <!-- NICKNAME FORM -->
+  <form [formGroup]="nickNameForm">
 
-  <!-- RECENT CHATS -->
-  <app-chat-list></app-chat-list>
+    <div class="title">
+      set nickname:
+    </div>
+    <input type="text" formControlName="nickName" />
+
+    <button type="submit" (click)="handleSubmitForm()">Set</button>
+  </form>
+
 </div>

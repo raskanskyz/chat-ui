@@ -1,18 +1,26 @@
+$toolbar-height: 70px;
 .container{
     border-right-style: solid;
     border-left-style: none;
     border-top-style: none;
     border-bottom-style: none;
+    background: url('../../assets/circles-light.png');
+
+    .darken-overlay div {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
 
     .toolbar{
-        height: 70px;
-        .avatar{
-            flex-shrink: 0;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 50px;
-            height: 50px;
-        }
+        height: $toolbar-height;
+       .nickname-placeholder{
+           align-items: center; 
+       }
+    }
+
+    .nickname-form{
+        height: calc(100% - #{$toolbar-height});
     }
 }
 
