@@ -5,6 +5,10 @@
     display: flex;
 }
 
+.flex--reverse{
+    flex-direction: row-reverse;
+}
+
 .block{
     display: block;
 }
@@ -111,6 +115,11 @@
  width: 100%;   
 }
 
+
+//OVERFLOW
+.overflow--y{
+    overflow-y: auto;
+}
 
 //BORDERS
 .border{

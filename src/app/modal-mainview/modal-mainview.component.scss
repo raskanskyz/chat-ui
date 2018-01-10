@@ -1,2 +1,9 @@
 .container{
+    flex-direction: column;
+    background-image: url('../../assets/circles-light.png');
+    
+    .conversation > div{
+        min-height: 70px;
+        align-items: center;
+    }
 }
