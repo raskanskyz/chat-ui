@@ -1,11 +1,11 @@
 @import '../styles/variables.scss';
 .container{
-    margin-left: 120px;
-    margin-right: 120px;
+    background-color: #dfdfdf;
+    background-image: linear-gradient(to bottom, #dddbd1, #d2dbdc);
     .spotim-header {
         background-color: $brand-color;
         flex-wrap: wrap;
-        height: 150px;
+        height: $header-height;
         .spotim-title {
           font-size: 1.5em;
         }
