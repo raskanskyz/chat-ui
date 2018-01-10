@@ -7,8 +7,7 @@
     .toolbar{
         height: 70px;
         .avatar{
-            background-image: url('../../assets/avatar-1.png');
-            border-radius: 25px;
+            flex-shrink: 0;
             background-repeat: no-repeat;
             background-size: cover;
             width: 50px;
