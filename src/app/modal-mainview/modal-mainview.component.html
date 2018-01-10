@@ -1,13 +1,13 @@
 <div class="flex container max">
 
   <!-- MESSAGE LIST -->
-  <div class="conversation max pt--20 overflow--y">
+  <div #scrollMe class="conversation max pt--20 overflow--y">
 
     <!-- MESSAGE ITEM <REPEAT> -->
     <div class="flex message-item" *ngFor="let temp of messages" appCheckOrigin senderId="{{temp._id}}">
 
       <!-- USER AVATAR -->
-      <app-avatar [avatarUrl]="temp.avatar"></app-avatar>
+      <app-avatar [avatarUrl]="temp.avatar" [ngClass]="varA === varB ? 'css-class-1' : 'css-class-2'"></app-avatar>
 
       <!-- USER MESSAGE CONTENT -->
       <div class="message-content" appSetStyling senderId="{{temp._id}}">
