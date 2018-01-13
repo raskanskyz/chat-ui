@@ -4,14 +4,17 @@
   <div #scrollMe class="conversation max pt--20 overflow--y">
 
     <!-- MESSAGE ITEM <REPEAT> -->
-    <div class="flex message-item" *ngFor="let temp of messages" appCheckOrigin senderId="{{temp._id}}">
+    <div appCheckOrigin class="flex message-item" *ngFor="let message of messages" senderId="{{message._id}}">
 
-      <!-- USER AVATAR -->
-      <app-avatar [avatarUrl]="temp.avatar" [ngClass]="varA === varB ? 'css-class-1' : 'css-class-2'"></app-avatar>
+      <div class="flex" [ngStyle]="{'align-items' : 'center', 'flex-direction' : message.isSelfMessage ? '' : 'row-reverse'}">
+        <!-- USER AVATAR -->
+        <app-avatar [avatarUrl]="message.avatar" [ngClass]="message.isSelfMessage ? 'ml--10' : 'mr--10'"></app-avatar>
+        <div>{{message.userName}}</div>
+      </div>
 
       <!-- USER MESSAGE CONTENT -->
-      <div class="message-content" appSetStyling senderId="{{temp._id}}">
-        {{temp.text}}
+      <div class="message-content" appSetStyling senderId="{{message._id}}">
+        {{message.text}}
       </div>
     </div>
   </div>

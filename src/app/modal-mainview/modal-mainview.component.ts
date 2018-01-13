@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class ModalMainviewComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  isSelfMessage: boolean;
   messages = [];
   connection;
   message;
@@ -18,8 +17,8 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
   constructor(private chatRoomsService: ChatRoomsService) { }
 
   ngOnInit() {
-    this.connection = this.chatRoomsService.getMessages().subscribe(message => {
-      //this.isSelfMessage = message._id == localStorage.getItem('_id');
+    this.connection = this.chatRoomsService.getMessages().subscribe((message: any) => {
+      message.isSelfMessage = message._id == localStorage.getItem('_id');
       this.messages.push(message);
     })
   }

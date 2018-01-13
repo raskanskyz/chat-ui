@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -10,7 +12,6 @@ import { AvatarComponent } from './avatar/avatar.component';
 
 //SERVICES
 import { ChatRoomsService } from './services/chat-rooms.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckOriginDirective } from './directives/check-origin.directive';
 import { SetStylingDirective } from './directives/set-styling.directive';
 
