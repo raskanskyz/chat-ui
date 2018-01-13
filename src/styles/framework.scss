@@ -5,6 +5,14 @@
     display: flex;
 }
 
+.flex--grow{
+    flex-grow: 1;
+}
+
+.flex--grow--no{
+    flex-grow: 0;
+}
+
 .block{
     display: block;
 }

@@ -10,6 +10,14 @@
         word-break: break-all;
     }
 
+    .message-creation{
+        box-sizing: border-box;
+
+        .message-input{
+            flex-grow: 1;
+        }
+    }
+
     .message-item{
         padding-right: 50px;
         padding-left: 50px;

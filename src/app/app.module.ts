@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//MAT
+import { MatButtonModule, MatInputModule } from '@angular/material';
 
 
 //COMPONENTS
@@ -28,11 +32,15 @@ import { SetStylingDirective } from './directives/set-styling.directive';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [
     ChatRoomsService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

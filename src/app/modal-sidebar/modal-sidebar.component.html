@@ -15,14 +15,16 @@
   </div>
 
   <!-- NICKNAME FORM -->
-  <form [formGroup]="nickNameForm">
+  <form class="flex pa--5" [formGroup]="nickNameForm">
 
-    <div class="title">
-      set nickname:
-    </div>
-    <input type="text" formControlName="nickName" />
+    <mat-form-field class="flex--grow">
+      <input formControlName="nickName" matInput placeholder="{{nickname}}" (focus)="clearPlaceholder()">
+      <mat-error>
+        <strong>nickname field can't be empty</strong>
+      </mat-error>
+    </mat-form-field>
 
-    <button type="submit" (click)="handleSubmitForm()">Set</button>
+    <button mat-button type="submit" (click)="handleSubmitForm()">Set</button>
   </form>
 
 </div>

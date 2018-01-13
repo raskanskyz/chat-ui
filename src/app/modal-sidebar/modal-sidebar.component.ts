@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-sidebar',
@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./modal-sidebar.component.scss']
 })
 export class ModalSidebarComponent implements OnInit, AfterContentInit {
+
 
   availableAvatars: string[];
   currentAvatarUrl: string;
@@ -28,7 +29,7 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
     ];
 
     this.nickNameForm = this.fb.group({
-      nickName: [''],
+      nickName: ['', [Validators.required]],
     }, { updateOn: 'blur' });
   }
   ngAfterContentInit(): void {
@@ -52,6 +53,8 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
     else {
       this.nickName = localStorage.getItem('nickName');
     }
+
+    this.nickNameForm.controls.nickName.setValue(this.nickName);
   }
 
   getRandomInt(min, max) {
@@ -59,7 +62,14 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
   }
 
   handleSubmitForm() {
-    localStorage.setItem('nickName', this.nickNameForm.controls.nickName.value);
-    this.nickName = this.nickNameForm.controls.nickName.value;
+    //if form valid
+    if (!this.nickNameForm.controls.nickName.errors) {
+      localStorage.setItem('nickName', this.nickNameForm.controls.nickName.value);
+      this.nickName = this.nickNameForm.controls.nickName.value;
+    }
+  }
+
+  clearPlaceholder() {
+    this.nickNameForm.controls.nickName.setValue('');
   }
 }

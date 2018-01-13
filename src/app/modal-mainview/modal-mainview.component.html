@@ -19,8 +19,18 @@
     </div>
   </div>
 
-  <div class="message-creation max--width">
-    <input [(ngModel)]="message" type="text" />
-    <button class="button" (click)="sendMessage()">Send</button>
-  </div>
+
+
+
+
+
+  <form class="flex message-creation max--width pa--5">
+    <!-- <input [(ngModel)]="message" type="text" /> -->
+    <mat-form-field class="message-input">
+      <textarea [(ngModel)]="message" matInput placeholder="Say something" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+
+    <!-- <button class="button" (click)="sendMessage()">Send</button> -->
+    <button (click)="sendMessage()" mat-button>Send</button>
+  </form>
 </div>

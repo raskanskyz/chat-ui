@@ -21,6 +21,10 @@ $toolbar-height: 70px;
 
     .nickname-form{
         height: calc(100% - #{$toolbar-height});
+
+        .button{
+            width: 45px;
+        }
     }
 }
 
