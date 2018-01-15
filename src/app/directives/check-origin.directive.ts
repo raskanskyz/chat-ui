@@ -7,7 +7,6 @@ export class CheckOriginDirective implements OnInit {
 
   @HostBinding('style.flex-direction') flexDirection = '';
   @Input() senderId: string;
-
   constructor() {
   }
 
@@ -16,6 +15,7 @@ export class CheckOriginDirective implements OnInit {
   }
 
   setStyling() {
+    console.log("senderId", this.senderId)
     if (localStorage.getItem('_id') == this.senderId) {
       this.flexDirection = 'row-reverse';
     }

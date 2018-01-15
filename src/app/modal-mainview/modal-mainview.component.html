@@ -4,7 +4,12 @@
   <div #scrollMe class="conversation max pt--20 overflow--y">
 
     <!-- MESSAGE ITEM <REPEAT> -->
-    <div appCheckOrigin class="flex message-item" *ngFor="let message of messages" senderId="{{message._id}}">
+
+    <!-- BREAKS UI -->
+    <!-- <div class="flex message-item" *ngFor="let message of messages" appCheckOrigin="message._id"> -->
+
+    <!-- BREAKS TESTS -->
+    <div class="flex message-item" *ngFor="let message of messages" appCheckOrigin [senderId]="message._id">
 
       <div class="flex" [ngStyle]="{'align-items' : 'center', 'flex-direction' : message.isSelfMessage ? '' : 'row-reverse'}">
         <!-- USER AVATAR -->
@@ -13,7 +18,12 @@
       </div>
 
       <!-- USER MESSAGE CONTENT -->
-      <div class="message-content" appSetStyling senderId="{{message._id}}">
+
+      <!-- BREAKS UI -->
+      <!-- <div class="message-content" appSetStyling="message._id"> -->
+
+      <!-- BREAKS TESTS -->
+      <div class="message-content" appSetStyling [senderId]="message._id">
         {{message.text}}
       </div>
     </div>
@@ -30,7 +40,6 @@
       <textarea [(ngModel)]="message" matInput placeholder="Say something" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>
 
-    <!-- <button class="button" (click)="sendMessage()">Send</button> -->
     <button (click)="sendMessage()" mat-button>Send</button>
   </form>
 </div>
