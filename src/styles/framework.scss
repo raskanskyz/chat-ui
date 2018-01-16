@@ -13,6 +13,10 @@
     flex-grow: 0;
 }
 
+.flex--reverse{
+    flex-direction:row-reverse;
+}
+
 .block{
     display: block;
 }

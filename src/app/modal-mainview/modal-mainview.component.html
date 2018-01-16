@@ -5,25 +5,18 @@
 
     <!-- MESSAGE ITEM <REPEAT> -->
 
-    <!-- BREAKS UI -->
-    <!-- <div class="flex message-item" *ngFor="let message of messages" appCheckOrigin="message._id"> -->
 
-    <!-- BREAKS TESTS -->
-    <div class="flex message-item" *ngFor="let message of messages" appCheckOrigin [senderId]="message._id">
+    <!-- <app-message></app-message> -->
+    <div class="flex message-item" *ngFor="let message of messages" [ngClass]="message.isSelfMessage ? 'flex--reverse' : ''">
 
-      <div class="flex" [ngStyle]="{'align-items' : 'center', 'flex-direction' : message.isSelfMessage ? '' : 'row-reverse'}">
+      <div class="flex" [ngStyle]="{'align-items' : 'center'}" [ngClass]="message.isSelfMessage ? '' : 'flex--reverse'">
         <!-- USER AVATAR -->
         <app-avatar [avatarUrl]="message.avatar" [ngClass]="message.isSelfMessage ? 'ml--10' : 'mr--10'"></app-avatar>
         <div>{{message.userName}}</div>
       </div>
 
       <!-- USER MESSAGE CONTENT -->
-
-      <!-- BREAKS UI -->
-      <!-- <div class="message-content" appSetStyling="message._id"> -->
-
-      <!-- BREAKS TESTS -->
-      <div class="message-content" appSetStyling [senderId]="message._id">
+      <div class="message-content" [ngClass]="message.isSelfMessage ? 'self-message' : ''">
         {{message.text}}
       </div>
     </div>

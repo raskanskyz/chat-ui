@@ -25,6 +25,13 @@
 
         .message-content{
             max-width: 60%;
+            border-radius: 12px;
+            background-color: gray;
+            padding : 5px 10px;
+        }
+
+        .self-message{
+            background-color: green;
         }
     }
 }

@@ -1,7 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalMainviewComponent } from './modal-mainview.component';
-import { CheckOriginDirective } from '../directives/check-origin.directive';
-import { SetStylingDirective } from '../directives/set-styling.directive';
 import { AvatarComponent } from '../avatar/avatar.component';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
@@ -21,9 +19,7 @@ describe('ModalMainviewComponent', () => {
       ],
       declarations: [
         ModalMainviewComponent,
-        CheckOriginDirective,
-        SetStylingDirective,
-        AvatarComponent,
+        AvatarComponent
       ],
       providers: [
         ChatRoomsService

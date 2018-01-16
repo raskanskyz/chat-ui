@@ -2,8 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalSidebarComponent } from './modal-sidebar.component';
 import { Component } from '@angular/core';
-import { CheckOriginDirective } from '../directives/check-origin.directive';
-import { SetStylingDirective } from '../directives/set-styling.directive';
 import { AvatarComponent } from '../avatar/avatar.component';
 import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,8 +21,6 @@ describe('ModalSidebarComponent', () => {
       ],
       declarations: [
         ModalSidebarComponent,
-        CheckOriginDirective,
-        SetStylingDirective,
         AvatarComponent
       ]
     })

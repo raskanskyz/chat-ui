@@ -16,8 +16,6 @@ import { AvatarComponent } from './avatar/avatar.component';
 
 //SERVICES
 import { ChatRoomsService } from './services/chat-rooms.service';
-import { CheckOriginDirective } from './directives/check-origin.directive';
-import { SetStylingDirective } from './directives/set-styling.directive';
 
 @NgModule({
   declarations: [
@@ -25,9 +23,7 @@ import { SetStylingDirective } from './directives/set-styling.directive';
     ChatModalComponent,
     ModalSidebarComponent,
     ModalMainviewComponent,
-    AvatarComponent,
-    CheckOriginDirective,
-    SetStylingDirective
+    AvatarComponent
   ],
   imports: [
     BrowserModule,
