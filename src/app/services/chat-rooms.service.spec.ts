@@ -1,15 +1,7 @@
-import { TestBed, inject } from '@angular/core/testing';
-
+import { TestBed, inject, async } from '@angular/core/testing';
 import { ChatRoomsService } from './chat-rooms.service';
+import { Server } from 'selenium-webdriver/safari';
 
-describe('ChatRoomsService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [ChatRoomsService]
-    });
-  });
+// describe('ChatRoomsService', () => {
 
-  it('should be created', inject([ChatRoomsService], (service: ChatRoomsService) => {
-    expect(service).toBeTruthy();
-  }));
-});
+// });

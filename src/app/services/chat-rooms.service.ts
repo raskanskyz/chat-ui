@@ -8,20 +8,8 @@ export class ChatRoomsService {
   private eventName = 'spotim/chat';
   private socket;
 
-
-
-  getChatRoom() {
-    let observable = new Observable(observer => {
-      observer.next(this.url);
-      return () => {
-
-      };
-    })
-    return observable;
-  }
-
   sendMessage(message) {
-    this.socket.emit(this.eventName, message);
+    return this.socket.emit(this.eventName, message);
   }
 
   getMessages() {

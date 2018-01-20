@@ -44,7 +44,6 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
       this.currentAvatarUrl = localStorage.getItem('currentAvatar');
     }
 
-
     //check if avatar is stored in localStorage
     if (!localStorage.getItem('nickName')) {
       this.nickName = "Guest";
@@ -53,7 +52,6 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
     else {
       this.nickName = localStorage.getItem('nickName');
     }
-
     this.nickNameForm.controls.nickName.setValue(this.nickName);
   }
 
@@ -67,9 +65,5 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
       localStorage.setItem('nickName', this.nickNameForm.controls.nickName.value);
       this.nickName = this.nickNameForm.controls.nickName.value;
     }
-  }
-
-  clearPlaceholder() {
-    this.nickNameForm.controls.nickName.setValue('');
   }
 }
