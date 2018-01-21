@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 /**
- * @description test
+ * @description root component
  * 
  * @export
- * @class AppComponent test
+ * @class AppComponent
  */
 @Component({
   selector: 'app-root',

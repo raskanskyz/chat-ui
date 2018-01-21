@@ -19,11 +19,14 @@
 
     <mat-form-field class="flex--grow">
       <input formControlName="nickName" matInput placeholder="{{nickname}}">
+
+      <!-- ERROR FIELD CONTAINER -->
       <mat-error>
         <strong class="nickname-error">nickname field can't be empty</strong>
       </mat-error>
     </mat-form-field>
 
+    <!-- SUBMIT -->
     <button mat-button type="submit" (click)="handleSubmitForm()">Set</button>
   </form>
 

@@ -10,12 +10,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class ModalMainviewComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  messages:any = [];
+  messages: any = [];
   connection;
   message;
 
   constructor(private chatRoomsService: ChatRoomsService) { }
 
+  /**
+   * @description initialize ModalMainviewComponent and loads current messages
+   * 
+   * 
+   * @memberOf ModalMainviewComponent
+   */
   ngOnInit() {
     this.connection = this.chatRoomsService.getMessages().subscribe((message: any) => {
       message.isSelfMessage = message._id == localStorage.getItem('_id');
@@ -23,9 +29,9 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
     })
   }
 
-  
+
   /**
-   * @description 
+   * @description function that forces the conversation list to bottom in order to display newest messages first
    * 
    * 
    * @memberOf ModalMainviewComponent
@@ -35,14 +41,13 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
   }
 
   /**
-   * @description test
+   * @description invokes ChatRoomsService.sendMessage() if the message has is valid
    * 
-   * @returns test
+   * @returns true if message has been sent, otherwise false
    * 
    * @memberOf ModalMainviewComponent
    */
   sendMessage() {
-
     if (!this.message) {
       return false;
     }
