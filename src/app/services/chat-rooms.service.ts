@@ -8,10 +8,24 @@ export class ChatRoomsService {
   private eventName = 'spotim/chat';
   private socket;
 
+  /**
+   * @description emits an event to a socket.io server (defined in url property)
+   * 
+   * @param {any} message an object containing details of the message
+   * 
+   * @memberOf ChatRoomsService
+   */
   sendMessage(message) {
-    return this.socket.emit(this.eventName, message);
+    this.socket.emit(this.eventName, message);
   }
 
+  /**
+   * @description initializes a socket.io connection in order to get messages from the server
+   * 
+   * @returns an observable of messages sent by other clients
+   * 
+   * @memberOf ChatRoomsService
+   */
   getMessages() {
     let observable = new Observable(observer => {
       this.socket = io(this.url);

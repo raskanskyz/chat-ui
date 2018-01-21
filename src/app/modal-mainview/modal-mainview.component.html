@@ -1,12 +1,9 @@
 <div class="flex container max">
+  <div class="test-id"></div>
 
   <!-- MESSAGE LIST -->
   <div #scrollMe class="conversation max pt--20 overflow--y">
 
-    <!-- MESSAGE ITEM <REPEAT> -->
-
-
-    <!-- <app-message></app-message> -->
     <div class="flex message-item" *ngFor="let message of messages" [ngClass]="message.isSelfMessage ? 'flex--reverse' : ''">
 
       <div class="flex" [ngStyle]="{'align-items' : 'center'}" [ngClass]="message.isSelfMessage ? '' : 'flex--reverse'">
@@ -25,13 +22,8 @@
     </div>
   </div>
 
-
-
-
-
-
+  <!-- FORM FOR SENDING MESSAGES -->
   <form class="flex message-creation max--width pa--5">
-    <!-- <input [(ngModel)]="message" type="text" /> -->
     <mat-form-field class="message-input">
       <textarea [(ngModel)]="message" matInput placeholder="Say something" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>

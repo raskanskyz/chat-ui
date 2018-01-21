@@ -36,7 +36,7 @@ describe('ModalMainviewComponent', () => {
   beforeEach(() => {
     service = new ChatRoomsService();
     fixture = TestBed.createComponent(ModalMainviewComponent);
-    component = new ModalMainviewComponent(service);
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
@@ -47,5 +47,36 @@ describe('ModalMainviewComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should not be able to send an empty message', () => {
+    component.message = "";
+    expect(component.sendMessage()).toBeFalsy();
+  });
+
+  it('should be able to send a message with content', () => {
+    component.message = "awesome message";
+    spyOn(service, "sendMessage").and.returnValue(true);
+    expect(component.sendMessage()).toBeTruthy();
+  });
+
+  it('should display self messages with proper css', () => {
+    component.messages = [{
+      isSelfMessage: true,
+      text: "awesome message"
+    }];
+    fixture.detectChanges();
+    let test: HTMLElement = fixture.debugElement.query(By.css(".message-content")).nativeElement;
+    expect(test.classList.contains("self-message")).toBeTruthy();
+  });
+
+  it('should display foreign messages with proper css', () => {
+    component.messages = [{
+      isSelfMessage: false,
+      text: "awesome foreign message"
+    }];
+    fixture.detectChanges();
+    let test: HTMLElement = fixture.debugElement.query(By.css(".message-content")).nativeElement;
+    expect(test.classList.contains("self-message")).toBeFalsy();
   });
 });
