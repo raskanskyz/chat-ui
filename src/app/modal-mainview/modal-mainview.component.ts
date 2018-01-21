@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class ModalMainviewComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  messages = [];
+  messages:any = [];
   connection;
   message;
 
@@ -23,10 +23,24 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
     })
   }
 
+  
+  /**
+   * @description 
+   * 
+   * 
+   * @memberOf ModalMainviewComponent
+   */
   ngAfterViewChecked(): void {
     this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
   }
 
+  /**
+   * @description test
+   * 
+   * @returns test
+   * 
+   * @memberOf ModalMainviewComponent
+   */
   sendMessage() {
 
     if (!this.message) {
@@ -41,5 +55,6 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
     }
     this.chatRoomsService.sendMessage(messageObj);
     this.message = '';
+    return true;
   }
 }
