@@ -22,12 +22,17 @@
         padding-right: 50px;
         padding-left: 50px;
         padding-bottom: 50px;
-
+        
         .message-content{
+            flex-direction: column;
+            min-width: 150px;
             max-width: 60%;
             border-radius: 12px;
             background-color: gray;
             padding : 5px 10px;
+            .timestamp{
+                align-self: flex-end;
+            }
         }
 
         .self-message{

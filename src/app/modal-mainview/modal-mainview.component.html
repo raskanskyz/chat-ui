@@ -16,8 +16,11 @@
       </div>
 
       <!-- USER MESSAGE CONTENT -->
-      <div class="message-content" [ngClass]="message.isSelfMessage ? 'self-message' : ''">
-        {{message.text}}
+      <div class="flex message-content" [ngClass]="message.isSelfMessage ? 'self-message' : ''">
+        <div>
+          {{message.text}}
+        </div>
+        <div class="pa--10 flex--reverse text--sm timestamp">08:53</div>
       </div>
     </div>
   </div>
