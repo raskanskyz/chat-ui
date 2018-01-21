@@ -4,9 +4,9 @@
   <!-- MESSAGE LIST -->
   <div #scrollMe class="conversation max pt--20 overflow--y">
 
-    <div class="flex message-item" *ngFor="let message of messages" [ngClass]="message.isSelfMessage ? 'flex--reverse' : ''">
+    <div class="flex message-item" *ngFor="let message of messages" [ngClass]="message.isSelfMessage ? 'flex--reverse flex--end' : ''">
 
-      <div class="flex" [ngStyle]="{'align-items' : 'center'}" [ngClass]="message.isSelfMessage ? '' : 'flex--reverse'">
+      <div class="flex mb--5" [ngStyle]="{'align-items' : 'center'}" [ngClass]="message.isSelfMessage ? 'flex--reverse' : ''">
         <!-- USER AVATAR -->
         <app-avatar [avatarUrl]="message.avatar" [ngClass]="message.isSelfMessage ? 'ml--10' : 'mr--10'"></app-avatar>
         <div>{{message.userName}}</div>
@@ -14,10 +14,10 @@
 
       <!-- USER MESSAGE CONTENT -->
       <div class="flex message-content" [ngClass]="message.isSelfMessage ? 'self-message' : ''">
-        <div>
+        <div dir="auto">
           {{message.text}}
         </div>
-        <div class="pa--10 flex--reverse text--sm timestamp">08:53</div>
+        <div class="pa--10 flex--reverse text--sm timestamp">{{message.timestamp}}</div>
       </div>
     </div>
   </div>
@@ -25,9 +25,9 @@
   <!-- FORM FOR SENDING MESSAGES -->
   <form class="flex message-creation max--width pa--5">
     <mat-form-field class="message-input">
-      <textarea [(ngModel)]="message" matInput placeholder="Say something" [ngModelOptions]="{standalone: true}"></textarea>
+      <textarea [(ngModel)]="message" matInput placeholder="Say something" class="no-resize" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>
 
-    <button (click)="sendMessage()" mat-button>Send</button>
+    <button class="send-message--button" (click)="sendMessage()" mat-button>Send</button>
   </form>
 </div>

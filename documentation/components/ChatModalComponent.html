@@ -428,7 +428,7 @@ export class ChatModalComponent implements OnInit {
    * 
    * @memberOf ChatModalComponent
    */
-  ngOnInit() {
+  ngOnInit(): void {
     if (!localStorage.getItem(&#x27;_id&#x27;)) {
       localStorage.setItem(&#x27;_id&#x27;, this.generateUUID());
     }

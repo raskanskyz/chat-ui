@@ -417,7 +417,7 @@
                                         </ul>
                                 </div>
                                 <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
+                                    <b>Returns: </b>    <code>number</code>
     
                                 </div>
                                     <div class="io-description">
@@ -551,7 +551,7 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
    * 
    * @memberOf ModalSidebarComponent
    */
-  ngOnInit() {
+  ngOnInit(): void {
     this.availableAvatars &#x3D; [
       &quot;https://spotim-demo-chat-server.herokuapp.com/avatars/001-snorlax.png&quot;,
       &quot;https://spotim-demo-chat-server.herokuapp.com/avatars/002-psyduck.png&quot;,
@@ -606,7 +606,7 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
    * 
    * @memberOf ModalSidebarComponent
    */
-  getRandomInt(min, max) {
+  getRandomInt(min, max): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 

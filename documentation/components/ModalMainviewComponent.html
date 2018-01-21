@@ -396,11 +396,41 @@
                                 <div class="io-description">
                                 </div>
                                 <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
+                                    <b>Returns: </b>    <code>boolean</code>
     
                                 </div>
                                     <div class="io-description">
                                         <p>true if message has been sent, otherwise false</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> getFormattedTimestamp</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>getFormattedTimestamp()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>string</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>the time in format hh:mm</p>
     
                                     </div>
                         </td>
@@ -498,9 +528,10 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
    * 
    * @memberOf ModalMainviewComponent
    */
-  ngOnInit() {
+  ngOnInit(): void {
     this.connection &#x3D; this.chatRoomsService.getMessages().subscribe((message: any) &#x3D;&gt; {
       message.isSelfMessage &#x3D; message._id &#x3D;&#x3D; localStorage.getItem(&#x27;_id&#x27;);
+      message.timestamp &#x3D; this.getFormattedTimestamp();
       this.messages.push(message);
     })
   }
@@ -523,7 +554,7 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
    * 
    * @memberOf ModalMainviewComponent
    */
-  sendMessage() {
+  sendMessage(): boolean {
     if (!this.message) {
       return false;
     }
@@ -537,6 +568,20 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
     this.chatRoomsService.sendMessage(messageObj);
     this.message &#x3D; &#x27;&#x27;;
     return true;
+  }
+
+
+  /**
+   * @description gets the current time
+   * 
+   * @returns {string} the time in format hh:mm
+   * @memberof ModalMainviewComponent
+   */
+  getFormattedTimestamp(): string {
+    const date &#x3D; new Date();
+    const hour &#x3D; date.getHours();
+    const minutes &#x3D; date.getMinutes();
+    return &#x60;${hour}:${minutes}&#x60;
   }
 }
 </code></pre>

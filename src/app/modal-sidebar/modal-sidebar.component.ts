@@ -25,7 +25,7 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
    * 
    * @memberOf ModalSidebarComponent
    */
-  ngOnInit() {
+  ngOnInit(): void {
     this.availableAvatars = [
       "https://spotim-demo-chat-server.herokuapp.com/avatars/001-snorlax.png",
       "https://spotim-demo-chat-server.herokuapp.com/avatars/002-psyduck.png",
@@ -80,7 +80,7 @@ export class ModalSidebarComponent implements OnInit, AfterContentInit {
    * 
    * @memberOf ModalSidebarComponent
    */
-  getRandomInt(min, max) {
+  getRandomInt(min, max): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 

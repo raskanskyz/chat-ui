@@ -17,6 +17,10 @@
     flex-direction:row-reverse;
 }
 
+.flex--end{
+    align-items: flex-end;
+}
+
 .block{
     display: block;
 }
@@ -45,6 +49,10 @@
 }
 .mr--10{
     margin-right: 10px;
+}
+
+.mb--5{
+    margin-bottom: 5px;
 }
 
 //PADDING

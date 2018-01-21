@@ -18,7 +18,7 @@ export class AvatarComponent implements OnInit {
   @Input() avatarUrl;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

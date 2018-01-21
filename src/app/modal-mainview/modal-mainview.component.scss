@@ -6,7 +6,6 @@
     
     .conversation > div{
         min-height: 70px;
-        align-items: center;
         word-break: break-all;
     }
 
@@ -15,6 +14,15 @@
 
         .message-input{
             flex-grow: 1;
+            .no-resize{
+                resize: none;
+            }
+        }
+
+        .send-message--button{
+            height: 40px;
+            align-self: flex-end;
+            margin-bottom: 7px;
         }
     }
 
@@ -22,6 +30,15 @@
         padding-right: 50px;
         padding-left: 50px;
         padding-bottom: 50px;
+        flex-direction: column;
+
+        .self-message{
+            .avatar-container{
+                justify-content: flex-end;
+            }
+
+            
+        }
         
         .message-content{
             flex-direction: column;
@@ -37,6 +54,7 @@
 
         .self-message{
             background-color: green;
+            align-items: flex-end;
         }
     }
 }

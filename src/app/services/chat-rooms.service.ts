@@ -15,7 +15,7 @@ export class ChatRoomsService {
    * 
    * @memberOf ChatRoomsService
    */
-  sendMessage(message) {
+  sendMessage(message): void {
     this.socket.emit(this.eventName, message);
   }
 
@@ -26,7 +26,7 @@ export class ChatRoomsService {
    * 
    * @memberOf ChatRoomsService
    */
-  getMessages() {
+  getMessages(): Observable<any> {
     let observable = new Observable(observer => {
       this.socket = io(this.url);
       this.socket.on(this.eventName, (data) => {

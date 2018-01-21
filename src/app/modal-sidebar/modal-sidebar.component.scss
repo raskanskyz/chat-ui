@@ -22,9 +22,13 @@ $toolbar-height: 70px;
     .nickname-form{
         height: calc(100% - #{$toolbar-height});
 
-        .button{
-            width: 45px;
-        }
+ 
+    }
+
+    .send-message--button{
+        height: 40px;
+        align-self: flex-end;
+        margin-bottom: 20px;
     }
 }
 

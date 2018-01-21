@@ -22,9 +22,10 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
    * 
    * @memberOf ModalMainviewComponent
    */
-  ngOnInit() {
+  ngOnInit(): void {
     this.connection = this.chatRoomsService.getMessages().subscribe((message: any) => {
       message.isSelfMessage = message._id == localStorage.getItem('_id');
+      message.timestamp = this.getFormattedTimestamp();
       this.messages.push(message);
     })
   }
@@ -47,7 +48,7 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
    * 
    * @memberOf ModalMainviewComponent
    */
-  sendMessage() {
+  sendMessage(): boolean {
     if (!this.message) {
       return false;
     }
@@ -61,5 +62,19 @@ export class ModalMainviewComponent implements OnInit, AfterViewChecked {
     this.chatRoomsService.sendMessage(messageObj);
     this.message = '';
     return true;
+  }
+
+
+  /**
+   * @description gets the current time
+   * 
+   * @returns {string} the time in format hh:mm
+   * @memberof ModalMainviewComponent
+   */
+  getFormattedTimestamp(): string {
+    const date = new Date();
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    return `${hour}:${minutes}`
   }
 }

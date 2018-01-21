@@ -385,7 +385,7 @@
                                         <div class="io-description">
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns: </b>    <code>void</code>
+                                            <b>Returns: </b>    <code>Observable&lt;any&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -475,7 +475,7 @@ export class ChatRoomsService {
    * 
    * @memberOf ChatRoomsService
    */
-  sendMessage(message) {
+  sendMessage(message): void {
     this.socket.emit(this.eventName, message);
   }
 
@@ -486,7 +486,7 @@ export class ChatRoomsService {
    * 
    * @memberOf ChatRoomsService
    */
-  getMessages() {
+  getMessages(): Observable&lt;any&gt; {
     let observable &#x3D; new Observable(observer &#x3D;&gt; {
       this.socket &#x3D; io(this.url);
       this.socket.on(this.eventName, (data) &#x3D;&gt; {
