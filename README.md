@@ -12,4 +12,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Viewing compodoc documentation (recommended)
 
-Navigate to /documentation/index.html
+open file chat-ui/documentation/index.html 
